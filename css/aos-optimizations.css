@@ -1,0 +1,86 @@
+/* AOS Performance Optimizations */
+
+/* Hardware acceleration for better performance */
+[data-aos] {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  /* Ensure animations are disabled on mobile as per JS settings */
+  [data-aos] {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Slightly reduce animation distances on tablets */
+  [data-aos="fade-up"] {
+    transform: translate3d(0, 30px, 0);
+  }
+
+  [data-aos="fade-left"] {
+    transform: translate3d(30px, 0, 0);
+  }
+
+  [data-aos="fade-right"] {
+    transform: translate3d(-30px, 0, 0);
+  }
+
+  [data-aos="zoom-in"] {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+}
+
+/* Enhance existing hover effects to work well with AOS */
+.montessori-feature-card {
+  /* Add hardware acceleration for existing hover effects */
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.feature-icon {
+  /* Add hardware acceleration for icon animations */
+  will-change: transform, background;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Prevent layout shift during animations */
+[data-aos] {
+  min-height: 1px;
+}
+
+/* Loading state optimization */
+.aos-init {
+  pointer-events: none;
+}
+
+.aos-animate {
+  pointer-events: auto;
+}
+
+/* Print styles - disable animations */
+@media print {
+  [data-aos] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

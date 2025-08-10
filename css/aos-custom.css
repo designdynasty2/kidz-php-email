@@ -1,0 +1,169 @@
+/* AOS Custom Styles and Mobile Optimizations */
+
+/* Performance optimizations for AOS animations */
+[data-aos] {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Custom AOS animation overrides for better performance */
+[data-aos="fade-up"] {
+  transform: translate3d(0, 40px, 0);
+}
+
+[data-aos="fade-down"] {
+  transform: translate3d(0, -40px, 0);
+}
+
+[data-aos="fade-left"] {
+  transform: translate3d(40px, 0, 0);
+}
+
+[data-aos="fade-right"] {
+  transform: translate3d(-40px, 0, 0);
+}
+
+[data-aos="zoom-in"] {
+  transform: scale3d(0.8, 0.8, 1);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile optimizations - Disable complex animations on small screens */
+@media (max-width: 768px) {
+  /* Simplify animations on mobile for better performance */
+  [data-aos="zoom-in"] {
+    transform: translate3d(0, 20px, 0) !important;
+    opacity: 0;
+  }
+
+  [data-aos="zoom-in"].aos-animate {
+    transform: translate3d(0, 0, 0) !important;
+    opacity: 1;
+  }
+
+  /* Reduce animation distances on mobile */
+  [data-aos="fade-up"] {
+    transform: translate3d(0, 20px, 0);
+  }
+
+  [data-aos="fade-down"] {
+    transform: translate3d(0, -20px, 0);
+  }
+
+  [data-aos="fade-left"] {
+    transform: translate3d(20px, 0, 0);
+  }
+
+  [data-aos="fade-right"] {
+    transform: translate3d(-20px, 0, 0);
+  }
+}
+
+/* Extra small screens - Further simplify animations */
+@media (max-width: 480px) {
+  /* Minimal animations for very small screens */
+  [data-aos] {
+    animation-duration: 0.4s !important;
+    transition-duration: 0.4s !important;
+  }
+
+  /* Convert complex animations to simple fade */
+  [data-aos="zoom-in"],
+  [data-aos="fade-left"],
+  [data-aos="fade-right"] {
+    transform: translate3d(0, 10px, 0) !important;
+    opacity: 0;
+  }
+
+  [data-aos="zoom-in"].aos-animate,
+  [data-aos="fade-left"].aos-animate,
+  [data-aos="fade-right"].aos-animate {
+    transform: translate3d(0, 0, 0) !important;
+    opacity: 1;
+  }
+}
+
+/* Enhance specific elements with custom animations */
+.banner_content[data-aos] {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.montessori-feature-card[data-aos] {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.gallery-item[data-aos] {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Ensure smooth animations don't interfere with existing hover effects */
+.montessori-feature-card:hover {
+  animation-play-state: paused;
+}
+
+.categories__tabs:hover {
+  animation-play-state: paused;
+}
+
+/* Loading state optimization */
+.aos-init {
+  pointer-events: none;
+}
+
+.aos-animate {
+  pointer-events: auto;
+}
+
+/* Prevent layout shift during animations */
+[data-aos] {
+  min-height: 1px;
+}
+
+/* Custom easing for different animation types */
+[data-aos="fade-up"],
+[data-aos="fade-down"] {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[data-aos="fade-left"],
+[data-aos="fade-right"] {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+[data-aos="zoom-in"] {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Optimize for high refresh rate displays */
+@media (min-resolution: 120dpi) {
+  [data-aos] {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Dark mode considerations */
+@media (prefers-color-scheme: dark) {
+  [data-aos] {
+    /* Ensure animations work well in dark mode */
+    color-scheme: dark;
+  }
+}
+
+/* Print styles - disable animations */
+@media print {
+  [data-aos] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

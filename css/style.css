@@ -753,6 +753,20 @@ p {
   padding-right: 15px;
 }
 
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer__developer {
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 /* back-to-top  */
 .progress-wrap {
   position: fixed;
@@ -1227,6 +1241,16 @@ section.contact-section {
 
   .footer__2 {
     text-align: center;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .footer__developer {
+    font-size: 12px;
   }
 
   /* Back to top Mobile */

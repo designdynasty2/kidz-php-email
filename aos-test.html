@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AOS Animation Test - Dreamland Preschool</title>
+
+    <!-- AOS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="css/aos-custom.css" />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .test-section {
+        min-height: 100vh;
+        padding: 50px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .test-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      .test-section:nth-child(odd) {
+        background: #f8f9fa;
+      }
+
+      .test-section:nth-child(even) {
+        background: #e3f2fd;
+      }
+
+      h1,
+      h2 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .icon {
+        font-size: 48px;
+        color: #ef5874;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-section">
+      <h1 data-aos="fade-up" data-aos-duration="1000">AOS Animation Test</h1>
+      <p data-aos="fade-up" data-aos-delay="200">
+        Scroll down to see different animations in action
+      </p>
+    </div>
+
+    <div class="test-section">
+      <div class="test-card" data-aos="fade-right" data-aos-duration="800">
+        <div class="icon">🎨</div>
+        <h2>Fade Right Animation</h2>
+        <p>This card slides in from the left side</p>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-card" data-aos="fade-left" data-aos-duration="800">
+        <div class="icon">🌳</div>
+        <h2>Fade Left Animation</h2>
+        <p>This card slides in from the right side</p>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-card" data-aos="zoom-in" data-aos-duration="800">
+        <div class="icon">🎓</div>
+        <h2>Zoom In Animation</h2>
+        <p>This card scales up from the center</p>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div
+        class="test-card"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="100"
+      >
+        <div class="icon">👥</div>
+        <h2>Fade Up with Delay</h2>
+        <p>This card slides up with a small delay</p>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h2 data-aos="fade-up">Multiple Cards Test</h2>
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+        "
+      >
+        <div class="test-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon">📚</div>
+          <h3>Card 1</h3>
+          <p>First card with staggered animation</p>
+        </div>
+        <div class="test-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon">🎪</div>
+          <h3>Card 2</h3>
+          <p>Second card with staggered animation</p>
+        </div>
+        <div class="test-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon">🌈</div>
+          <h3>Card 3</h3>
+          <p>Third card with staggered animation</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div data-aos="fade-up" data-aos-duration="800">
+        <h2>Mobile Optimization Test</h2>
+        <p>
+          On mobile devices (< 768px), animations are simplified for better
+          performance.
+        </p>
+        <p>
+          On very small screens (< 480px), complex animations are converted to
+          simple fades.
+        </p>
+        <p>Resize your browser window to test responsive behavior.</p>
+      </div>
+    </div>
+
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+      // Initialize AOS with the same settings as the main site
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+        offset: 120,
+        delay: 0,
+        anchorPlacement: "top-bottom",
+        disable: function () {
+          return /Android 4|iPhone 4|iPad 1|iPod/.test(navigator.userAgent);
+        },
+        throttleDelay: 99,
+        debounceDelay: 50,
+      });
+
+      // Refresh AOS on window resize
+      window.addEventListener("resize", function () {
+        AOS.refresh();
+      });
+
+      // Add some debug information
+      console.log("AOS Test Page Loaded");
+      console.log("Screen width:", window.innerWidth);
+      console.log("User agent:", navigator.userAgent);
+      console.log(
+        "AOS disabled:",
+        /Android 4|iPhone 4|iPad 1|iPod/.test(navigator.userAgent)
+      );
+    </script>
+  </body>
+</html>
