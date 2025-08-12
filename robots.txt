@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://dreamlandpreschool.com/sitemap.xml
+Sitemap: https://kidzmontessoriacademy.com/sitemap.xml
 
 # Disallow certain directories if needed
 # Disallow: /admin/

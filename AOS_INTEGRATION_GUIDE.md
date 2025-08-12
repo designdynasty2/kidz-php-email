@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document outlines the complete integration of AOS (Animate On Scroll) library into the Dreamland Preschool website, focusing on performance optimization and responsive design.
+This document outlines the complete integration of AOS (Animate On Scroll) library into the kidzmontessoriacademy Preschool website, focusing on performance optimization and responsive design.
 
 ## Files Modified/Created
 
