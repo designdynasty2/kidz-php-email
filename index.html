@@ -669,71 +669,135 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
-      <h2
-        class="form_header alignment"
-        data-aos="fade-up"
-        data-aos-duration="800"
-      >
-        Our Gallery
-      </h2>
-      <div class="all_margin">
-        <div class="gallery-container">
-          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-            <img
-              src="./assests/gallery/image1.jpg"
-              alt="Children playing in classroom"
-            />
-          </div>
-          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="150">
-            <img
-              src="./assests/gallery/image2.jpg"
-              alt="Art and craft activities"
-            />
-          </div>
-          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-            <img
-              src="./assests/gallery/image3.jpg"
-              alt="Outdoor playground activities"
-            />
-          </div>
-          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="250">
-            <img
-              src="./assests/gallery/image4.jpg"
-              alt="Learning through play"
-            />
-          </div>
-          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-            <img
-              src="./assests/gallery/image5.jpg"
-              alt="Group activities and social learning"
-            />
-          </div>
-          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="350">
-            <img
-              src="./assests/gallery/image6.jpg"
-              alt="Creative expression time"
-            />
-          </div>
-          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
-            <img
-              src="./assests/gallery/image7.jpg"
-              alt="Story time and reading"
-            />
-          </div>
-          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="450">
-            <img
-              src="./assests/gallery/image8.jpg"
-              alt="Music and movement activities"
-            />
-          </div>
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+          <h2 class="section-title">Our Learning Environment</h2>
+          <p class="section-subtitle">
+            Take a glimpse into our vibrant classrooms and activities
+          </p>
         </div>
 
-        <!-- Modal for enlarged image -->
-        <div id="myModal" class="modal">
-          <span class="close">&times;</span>
-          <img class="modal-content" id="img01" alt="Enlarged gallery image" />
+        <div class="gallery-grid">
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+            <img
+              src="./assests/gallery/classroom.jpg"
+              alt="Primary Classroom"
+              class="gallery-img"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <h4>Primary Classroom</h4>
+                <p>Prepared environment for ages 3-5</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+            <img
+              src="./assests/gallery/outdoor.jpg"
+              alt="Outdoor Learning"
+              class="gallery-img"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <h4>Outdoor Learning</h4>
+                <p>Nature-based exploration</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+            <img
+              src="./assests/gallery/art.jpg"
+              alt="Art Studio"
+              class="gallery-img"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <h4>Art Studio</h4>
+                <p>Creative expression space</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+            <img
+              src="./assests/gallery/image4.jpg"
+              alt="Reading Corner"
+              class="gallery-img"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <h4>Reading Corner</h4>
+                <p>Quiet space for literature</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+            <img
+              src="./assests/gallery/image5.jpg"
+              alt="Science Discovery"
+              class="gallery-img"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <h4>Science Discovery</h4>
+                <p>Hands-on experiments</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
+            <img
+              src="./assests/gallery/playground.jpg"
+              alt="Playground"
+              class="gallery-img"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <h4>Playground</h4>
+                <p>Physical development area</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="700">
+            <img
+              src="./assests/gallery/music.jpg"
+              alt="Music & Movement"
+              class="gallery-img"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <h4>Music & Movement</h4>
+                <p>Rhythm and coordination activities</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-aos="zoom-in" data-aos-delay="800">
+            <img
+              src="./assests/gallery/image1.jpg"
+              alt="Learning Materials"
+              class="gallery-img"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-content">
+                <h4>Learning Materials</h4>
+                <p>Montessori educational tools</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Lightbox Modal -->
+      <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" alt="Gallery Image" />
+        <div id="lightbox-caption" class="lightbox-caption"></div>
       </div>
     </section>
 
@@ -876,7 +940,8 @@
                   <i class="fa-solid fa-phone tag"></i>Call us: +1 317-699-9878
                 </p>
                 <p>
-                  <i class="fa-regular fa-envelope tag"></i>example@example.com
+                  <i class="fa-regular fa-envelope tag"></i
+                  >kidzmontessoriacademy@gmail.com
                 </p>
                 <p>
                   <i class="fa-regular fa-clock tag"></i>Monday-Friday: 9:00 am
