@@ -301,7 +301,7 @@
           data-aos-duration="1000"
           data-aos-delay="200"
         >
-          <h2>Welcome To Our Kindergarten</h2>
+          <h2>Welcome To Kidz Montessori Academy Preschool</h2>
           <p>
             At Kidz Montessori Academy Preschool, we believe in nurturing young
             minds through creative learning and play. Our experienced educators
@@ -1094,8 +1094,8 @@
           /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) ||
           "Please enter a valid email address.",
         phonenumber: (value) =>
-          /^[0-9]{10}$/.test(value) ||
-          "Please enter a valid 10-digit phone number.",
+          /^[0-9]{10,15}$/.test(value) ||
+          "Please enter a valid phone number with 10 to 15 digits.",
         message: (value) => value.trim() !== "" || "Please enter a message.",
       };
 
@@ -1151,17 +1151,29 @@
               }),
             }
           );
-
-          if (response.ok) {
+          const data = await response.json();
+          if (response.ok && data.ok) {
             statusMsg.style.color = "green";
-            statusMsg.textContent = "Message sent successfully!";
+            statusMsg.textContent =
+              data.message || "Message sent successfully!";
             form.reset();
             document
               .querySelectorAll(".error-message")
               .forEach((el) => (el.textContent = ""));
+
+            // Hide the message after 2 seconds
+            setTimeout(() => {
+              statusMsg.textContent = "";
+            }, 2000);
           } else {
             statusMsg.style.color = "red";
-            statusMsg.textContent = "Something went wrong. Please try again.";
+            statusMsg.textContent =
+              data.message || "Something went wrong. Please try again.";
+
+            // Optionally hide this message after 2 seconds as well
+            setTimeout(() => {
+              statusMsg.textContent = "";
+            }, 2000);
           }
         } catch (error) {
           statusMsg.style.color = "red";
