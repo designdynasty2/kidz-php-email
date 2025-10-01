@@ -32,13 +32,13 @@ if (empty($name) || empty($email) || empty($message)) {
 }
 
 // SMTP credentials (replace with your actual SMTP host + credentials)
-$smtpHost     = 'smtp.yourhost.com';           // e.g., smtp.hostinger.com or smtp.gmail.com
-$smtpUsername = 'yourdomainemail@yourdomain.com';
-$smtpPassword = 'YOUR_SMTP_PASSWORD_OR_APP_PASSWORD';
+$smtpHost     = 'smtp.gmail.com';           // e.g., smtp.hostinger.com or smtp.gmail.com
+$smtpUsername = 'designdynasty84@gmail.com';
+$smtpPassword = 'fmcs licg gskt yonm';
 $smtpPort     = 587;                           // or 465 for SSL
 $smtpSecure   = PHPMailer::ENCRYPTION_STARTTLS; // or PHPMailer::ENCRYPTION_SMTPS for 465
 
-$recipientEmail = 'info@kidzmontessoriacademy.com';
+$recipientEmail = 'savitha848410@gmail.com';
 $recipientName  = 'Kidz Montessori Academy';
 
 // Build the message HTML
