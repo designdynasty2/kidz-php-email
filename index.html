@@ -1116,7 +1116,7 @@
         const statusEl = document.getElementById("form-status");
 
         form.addEventListener("submit", (e) => {
-          e.preventDefault(); // prevent page reload
+          e.preventDefault();
 
           statusEl.textContent = "Sending...";
           statusEl.style.color = "black";
@@ -1127,21 +1127,30 @@
             method: "POST",
             body: formData,
           })
-            .then((response) => response.json()) // expect JSON from PHP
-            .then((data) => {
-              if (data.status === "success") {
-                statusEl.textContent = "✅ " + data.message;
-                statusEl.style.color = "green";
-                form.reset();
+            .then((response) => {
+              // If debug mode is on, server may return HTML, else JSON
+              const contentType = response.headers.get("content-type");
+              if (contentType && contentType.includes("application/json")) {
+                return response.json();
               } else {
-                statusEl.textContent = "❌ " + data.message;
-                statusEl.style.color = "red";
-
-                // Optional: show detailed debug if available
-                if (data.spoof_error)
-                  console.log("Spoof Error:", data.spoof_error);
-                if (data.safe_error)
-                  console.log("Safe Error:", data.safe_error);
+                return response.text();
+              }
+            })
+            .then((data) => {
+              if (typeof data === "object") {
+                // JSON response
+                if (data.status === "success") {
+                  statusEl.textContent = "✅ " + data.message;
+                  statusEl.style.color = "green";
+                  form.reset();
+                } else {
+                  statusEl.textContent = "❌ " + data.message;
+                  statusEl.style.color = "red";
+                }
+              } else {
+                // Debug HTML/text
+                statusEl.innerHTML = data; // display SMTP debug output
+                statusEl.style.color = "blue";
               }
             })
             .catch((error) => {
