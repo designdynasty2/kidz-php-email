@@ -866,7 +866,12 @@
           >
             <h2 class="form_header">Contact Us</h2>
             <br />
-            <form id="contact-form" novalidate>
+            <form
+              id="contactForm"
+              action="sendmail.php"
+              method="POST"
+              novalidate
+            >
               <div class="form-group mb-3">
                 <label for="name">Name:</label>
                 <input
@@ -1102,7 +1107,40 @@
     <script src="./css/script.js"></script>
     <script src="./assests/js/features.js"></script>
     <script src="./css/gallery.js"></script>
+    <!--send mail via formspree-->
     <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
+        const statusEl = document.getElementById("form-status");
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault(); // Prevent page reload/scroll
+
+          const formData = new FormData(form);
+
+          fetch(form.action, {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.text())
+            .then(() => {
+              statusEl.textContent =
+                "✅ Your message has been sent successfully!";
+              statusEl.style.color = "green";
+              form.reset(); // Clear the form
+            })
+            .catch((error) => {
+              console.error(error);
+              statusEl.textContent =
+                "❌ Sorry, there was an error sending your message.";
+              statusEl.style.color = "red";
+            });
+        });
+      });
+    </script>
+    <!--send mail via nodejs-->
+
+    <!-- <script>
       const form = document.getElementById("contact-form");
       const statusMsg = document.getElementById("form-status");
 
@@ -1199,7 +1237,7 @@
           console.error(error);
         }
       });
-    </script>
+    </script> -->
     <script>
       // Testimonial Carousel
       $(".testimonial-carousel").owlCarousel({
